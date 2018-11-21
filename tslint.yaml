@@ -1,0 +1,6 @@
+---
+extends: tslint-config-globalid
+rules:
+#REMOVE_ME
+  #this is disabled just for base project and should be removed
+  no-useless-files: false 

@@ -1,0 +1,228 @@
+openapi: '3.0.0'
+info:
+  title: Contact Service
+  description: API for Contact Service
+  contact:
+    name: GlobalId
+    email: contact@globalid.com
+  version: v0.1
+servers:
+- url: 'https://api.globalid.net'
+tags:
+- name: Protected
+- name: Internal
+paths:
+  '/v1/contacts':
+    get:
+      tags:
+      - Protected
+      summary: Get a list of all contacts that belong to this identity
+      description: Get a list of all contacts that belong to this identity
+      operationId: GetContacts
+      responses:
+        '200':
+          $ref: '#/components/responses/EmptyResponse'
+components:
+  schemas:
+    PaginationMeta:
+      description: A Pagination Information
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/page'
+        per_page:
+          $ref: '#/components/schemas/per_page'
+        total:
+          $ref: '#/components/schemas/total'
+      required:
+      - page
+      - per_page
+      - total
+    UnexpectedError:
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 500
+        error_id:
+          type: string
+          format: uuid
+          example: 7c9e6a03-ac89-485e-885c-0fdd2c39739e
+        error_code:
+          type: string
+          example: UnexpectedError
+        message:
+          type: string
+          example: There was an unexpected error. We have been alerted and are looking into it.
+      required:
+      - error_id
+      - error_code
+      - statusCode
+      - message
+    UnauthorisedError:
+      description: Unauthorised error
+      required:
+      - error_code
+      - error_id
+      - message
+      - statusCode
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 401
+        message:
+          type: string
+          example: You are not authorized to access this resource
+        error_code:
+          type: string
+          example: ERR_UNAUTHORIZED
+        error_id:
+          type: string
+          format: uuid
+          example: 8c8bac3a-bc8c-4d44-bccf-1022b2434971
+    FiltersIncorrectError:
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 400
+        message:
+          type: string
+          example: The filters passed as parameters are incorrect
+        error_code:
+          type: string
+          example: ERR_FILTERS_INCORRECT
+        error_id:
+          type: string
+          format: uuid
+          example: 8c8bac3a-bc8c-4d44-bccf-1022b2434971
+    ForbiddenError:
+      description: Forbidden
+      required:
+      - error_code
+      - error_id
+      - message
+      - statusCode
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 403
+        message:
+          type: string
+          example: You are not authorised to access this resource
+        error_code:
+          type: string
+          example: 'ERR_FORBIDDEN'
+        error_id:
+          type: string
+          format: uuid
+          example: 8c8bac3a-bc8c-4d44-bccf-1022b2434971
+    UnprocessableEntityError:
+      description: Unprocessible Entity
+      required:
+      - error_code
+      - error_id
+      - message
+      - statusCode
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 422
+        message:
+          type: string
+          example: Your Client / Device limit has been reached
+        error_code:
+          type: string
+          example: 'CLIENT_DEVICE_LIMIT_REACHED'
+        error_id:
+          type: string
+          format: uuid
+          example: 8c8bac3a-bc8c-4d44-bccf-1022b2434971
+    page:
+      type: integer
+    per_page:
+      type: integer
+    total:
+      description: Pagination Total Records
+      type: integer
+      example: 255
+    ValidationFailedError:
+      description: Validation failed
+      properties:
+        error_id:
+          type: string
+          format: uuid
+          example: 8c8bac3a-bc8c-4d44-bccf-1022b2434971
+        request_id:
+          type: string
+          format: uuid
+          example: '39ac9a4f-27c8-45fa-a1dd-5b653c4a104f'
+        fields:
+          type: object
+          properties:
+            missing:
+              type: array
+              items:
+                type: string
+                example: should have required property 'required_property'
+    NotFound:
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 404
+        error_id:
+          type: string
+          format: uuid
+          example: 7c9e6a03-ac89-485e-885c-0fdd2c39739e
+        error_code:
+          type: string
+          example: ERR_NOT_FOUND
+        message:
+          type: string
+          example: The resource you are looking for does not exist
+      required:
+      - error_id
+      - error_code
+      - statusCode
+      - message
+  responses:
+    UnauthorisedResponse:
+      description: You are not authorised
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnauthorisedError'
+    ForbiddenErrorResponse:
+      description: You are not authorised
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ForbiddenError'
+    UnprocessableEntityResponse:
+      description: Unprocessible Entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnprocessableEntityError'
+    FiltersIncorrectErrorResponse:
+      description: The filters are incorrect
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FiltersIncorrectError'
+    EmptyResponse:
+      description: Response with empty array
+      content:
+        application/json:
+          schema:
+            type: object
+    UnexpectedError:
+      description: UnexpectedError
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UnexpectedError'
