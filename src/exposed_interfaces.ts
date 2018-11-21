@@ -8,7 +8,7 @@
 // tslint:disable: no-shadowed-variable
 export namespace API {
   export namespace V1 {
-        export namespace Contacts {
+        export namespace BaseProject {
           export type RequestParameters = void
           export type RequestBody = void
           export type Response = void

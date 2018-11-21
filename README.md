@@ -1,12 +1,12 @@
-##contact-service
+##baseproject-service
 
 ##Summary
-Handles identity contacts
+Handles identity baseprojects
 
 ##Current service Status
 
 ##Description
-This service is responsible for handling contacts and matching contacts for a given identity
+This service is responsible for handling baseprojects and matching baseprojects for a given identity
 
 ##Service Dependencies
 - Firebase and Firebase secrets
@@ -26,7 +26,7 @@ Usage instructions.  These should detail how to start and stop the microservice,
 Deployment instructions.
 
 ##Documentation Links
-https://global-id.atlassian.net/wiki/spaces/CPL/pages/49479780/Contact+Service
+https://global-id.atlassian.net/wiki/spaces/CPL/pages/49479780/baseproject+Service
 
 ##Notes
 Any programming notes or gotchas relating to the development and usage of this microservice.

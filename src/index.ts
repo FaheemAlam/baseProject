@@ -10,13 +10,13 @@ import { initService } from './app'
 const loggingOptions: Logging.InputDecorators = {
   component: 'Service:Index',
 }
-const logger: Logging.Logger = new Logger('contacts-service', loggingOptions)
+const logger: Logging.Logger = new Logger('baseproject-service', loggingOptions)
 
 const config: Lib.Config = {
   database: true,
   dynamo: false,
   elastic: false,
-  name: 'contacts-service',
+  name: 'baseproject-service',
   redis: false,
   redis_config: {},
   service_root_uri: '',

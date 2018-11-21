@@ -1,10 +1,10 @@
 openapi: '3.0.0'
 info:
-  title: Contact Service
-  description: API for Contact Service
+  title: BaseProject Service
+  description: API for BaseProject Service
   contact:
-    name: GlobalId
-    email: contact@globalid.com
+    name: Onebyte
+    email: abc@abc.com
   version: v0.1
 servers:
 - url: 'https://api.globalid.net'
@@ -12,13 +12,13 @@ tags:
 - name: Protected
 - name: Internal
 paths:
-  '/v1/contacts':
+  '/v1/baseproject':
     get:
       tags:
       - Protected
-      summary: Get a list of all contacts that belong to this identity
-      description: Get a list of all contacts that belong to this identity
-      operationId: GetContacts
+      summary: Get a list of all baseproject that belong to this identity
+      description: Get a list of all baseproject that belong to this identity
+      operationId: Getbaseproject
       responses:
         '200':
           $ref: '#/components/responses/EmptyResponse'

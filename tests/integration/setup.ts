@@ -32,7 +32,7 @@ export const serviceRootURI: string = ''
 
 export const config: Lib.Config = {
   database: true,
-  name: 'contacts-service',
+  name: 'baseproject-service',
   service_root_uri: serviceRootURI,
 }
 

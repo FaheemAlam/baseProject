@@ -10,7 +10,7 @@ import * as config from './conf'
 const loggingOptions: Logging.InputDecorators = {
   component: 'App',
 }
-const logger: Logging.Logger = new Logger('contacts-service', loggingOptions)
+const logger: Logging.Logger = new Logger('baseproject-service', loggingOptions)
 
 dotenv.config()
 

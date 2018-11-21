@@ -8,9 +8,9 @@ services:
   depends_on:
       - mysql
   environment:
-    NAMESPACE: contactsservice-test
+    NAMESPACE: baseprojectsservice-test
     NODE_ENV: development
-    DATABASE_CONNECTION_URL: "mysql://root:test@mysql:3306/test_contactsservice?debug=false&charset=utf8"
+    DATABASE_CONNECTION_URL: "mysql://root:test@mysql:3306/test_baseprojectsservice?debug=false&charset=utf8"
     AWS_ID: CHANGE_ME
     AWS_SECRET: CHANGE_ME
     SERVER_MAX_BODY_SIZE: 5000kb
@@ -26,7 +26,7 @@ services:
      - "3306:3306"
    environment:
      MYSQL_ROOT_PASSWORD: test
-     MYSQL_DATABASE: test_contactsservice
+     MYSQL_DATABASE: test_baseprojectsservice
      MYSQL_USER: root
      MYSQL_PASSWORD: test
  goaws:
