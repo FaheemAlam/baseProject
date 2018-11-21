@@ -23,13 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@gitlab.com:globalid/core-services/activities-service.git"
+    "url": "git clone git@bitbucket.org:onebytetech/base-project.git"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@globalid/identity-namespace-service-types": "^1.8.0",
-    "@globalid/veritas-types": "^1.1.0",
     "@types/chai": "^4.0.10",
     "@types/chai-as-promised": "^7.1.0",
     "@types/dotenv": "^4.0.3",
