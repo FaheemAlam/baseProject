@@ -1,10 +1,19 @@
-/**
- * @file This file contains routes definition and links routes to controllers functions
- */
-
+import { router } from 'onebyte_utils';
+import * as index from '../controllers/index'
 /**
  * Init  Routes function
  */
 export function init (): void {
- // tslint-disable: no-empty
+  testRoute()
+}
+
+/**
+ * Adds routes for activities
+ */
+function testRoute (): void {
+  router.exposed.GET(
+    'some-route',
+    1,
+    index.test,
+  )
 }

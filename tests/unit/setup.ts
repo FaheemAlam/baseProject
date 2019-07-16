@@ -13,7 +13,7 @@ chai.use(asPromised)
 chai.use(sinonChai)
 chai.should()
 
-import { Logging } from 'micro-kit-atlas'
+import { Logging } from 'onebyte_utils'
 import * as sinon from 'sinon'
 
 export const SANDBOX: sinon.SinonSandbox = sinon.sandbox.create()
@@ -47,13 +47,13 @@ afterEach(async () => {
  */
 export function logStub (): Logging.Logger {
   return {
+    critical: SANDBOX.stub(),
     debug: SANDBOX.stub(),
     decorators: {
       component: '',
-      microservice: '',
+      service: 'test',
     },
     error: SANDBOX.stub(),
-    fatal: SANDBOX.stub(),
     info: SANDBOX.stub(),
     log: SANDBOX.stub(),
     warn: SANDBOX.stub(),

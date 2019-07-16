@@ -6,7 +6,7 @@ import * as chai from 'chai'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import * as http from 'http'
-import { Lib } from 'micro-kit-atlas'
+import { Lib } from 'onebyte_utils'
 import * as Sequelize from 'sequelize'
 import * as sinon from 'sinon'
 import * as supertest from 'supertest'
@@ -33,7 +33,6 @@ export const serviceRootURI: string = ''
 export const config: Lib.Config = {
   database: true,
   name: 'baseproject-service',
-  service_root_uri: serviceRootURI,
 }
 
 before(async function (): Promise<void> {
