@@ -11,12 +11,7 @@ services:
     NAMESPACE: baseprojectsservice-test
     NODE_ENV: development
     DATABASE_CONNECTION_URL: "mysql://root:test@mysql:3306/test_baseprojectsservice?debug=false&charset=utf8"
-    AWS_ID: CHANGE_ME
-    AWS_SECRET: CHANGE_ME
     SERVER_MAX_BODY_SIZE: 5000kb
-    AWS_ACCESS_KEY_ID: CHANGE_ME
-    AWS_SECRET_ACCESS_KEY: CHANGE_ME
-    AWS_REGION: local
 #DEPENDENCIES
  mysql:
    container_name: mysql
@@ -29,8 +24,3 @@ services:
      MYSQL_DATABASE: test_baseprojectsservice
      MYSQL_USER: root
      MYSQL_PASSWORD: test
- goaws:
-  container_name: goaws
-  image: pafortin/goaws
-  ports:
-  - '4100:4100'
